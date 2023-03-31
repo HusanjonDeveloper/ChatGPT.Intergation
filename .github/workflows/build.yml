@@ -1,0 +1,25 @@
+name: ChatGPT
+on:
+  push:
+    branches:
+    - Main
+  pull_request:
+    branches:
+    - Main
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Chesking uot
+      uses: actions/checkout@v2
+    - name: Inistaling .Net
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 7.0.200
+        include-prerelease: false
+    - name: Restoring  pascages
+      run: dotnet restore
+    - name: Building Project
+      run: dotnet build --no-restore
+    - name: Testing Project
+      run: dotnet test --no-build --verbosity normal
