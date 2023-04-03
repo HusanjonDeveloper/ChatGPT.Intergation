@@ -1,4 +1,4 @@
-﻿namespace ChatGPT.Intergation
+namespace ChatGPT.Intergation
 {
 	public class Assistant
 	{
